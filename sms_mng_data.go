@@ -24,10 +24,10 @@ func main() {
  
  supportedFeatures := "5G core"
  mtSmsSubscribed := true
- mtSmsBarringAll := false
+ mtSmsBarringAll := true
  mtSmsBarringRoaming := true
  moSmsSubscribed := true
- moSmsBarringAll := false
+ moSmsBarringAll := true
  moSmsBarringRoaming := true
  request := SmsManagementSubscriptionDataConverter(supportedFeatures, mtSmsSubscribed, mtSmsBarringAll, mtSmsBarringRoaming, moSmsSubscribed, moSmsBarringAll, moSmsBarringRoaming)
  client.PMNSubscriberConfig(context.Background(), request)
