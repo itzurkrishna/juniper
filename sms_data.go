@@ -35,6 +35,6 @@ func SmsSubscriptionDataConverter(smsSubscribed bool, sharedSmsSubsDataId string
 		SharedSmsSubsDataId: sharedSmsSubsDataId,
 	}
   	return &protos.PMNSubscriberData{
-      		Sms_data: sd,
+      		SmsData: sd,
   	}
 }
