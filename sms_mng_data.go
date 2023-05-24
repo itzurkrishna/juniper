@@ -34,7 +34,7 @@ func main() {
 }
 
 
-func SmsManagementSubscriptionDataConverter(supportedFeatures string, mtSmsSubscribed, mtSmsBarringAll, mtSmsBarringRoaming, moSmsSubscribed, moSmsBarringAll, moSmsBarringRoaming bool) *models.SmsManagementSubscriptionData {
+func SmsManagementSubscriptionDataConverter(supportedFeatures string, mtSmsSubscribed, mtSmsBarringAll, mtSmsBarringRoaming, moSmsSubscribed, moSmsBarringAll, moSmsBarringRoaming bool) *protos.PMNSubscriberData {
 	smd := &models.SmsManagementSubscriptionData{
 		SupportedFeatures: supportedFeatures,
 		MtSmsSubscribed:   mtSmsSubscribed,
