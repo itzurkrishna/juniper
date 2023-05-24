@@ -44,7 +44,7 @@ func SmsManagementSubscriptionDataConverter(supportedFeatures string, mtSmsSubsc
 		MoSmsBarringAll:   moSmsBarringAll,
 		MoSmsBarringRoaming: moSmsBarringRoaming,
 	}
-  return &protos.PMNSubscriberData{
-      Sms_mng_data: smd,
-  }
+  	return &protos.PMNSubscriberData{
+      		SmsMngData: smd,
+  	}
 }
