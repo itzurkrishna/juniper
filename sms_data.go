@@ -29,12 +29,12 @@ func main() {
 }
 
 
-func SmsSubscriptionDataConverter(smsSubscribed bool, sharedSmsSubsDataId string) *models.SmsSubscriptionData {
+func SmsSubscriptionDataConverter(smsSubscribed bool, sharedSmsSubsDataId string) *protos.PMNSubscriberData {
 	sd := &models.SmsSubscriptionData{
 		SmsSubscribed:        smsSubscribed,
 		SharedSmsSubsDataId: sharedSmsSubsDataId,
 	}
-  return &protos.PMNSubscriberData{
-      Sms_data: sd,
-  }
+  	return &protos.PMNSubscriberData{
+      		Sms_data: sd,
+  	}
 }
