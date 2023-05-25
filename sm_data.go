@@ -69,7 +69,7 @@ func PMNConverter(ambrval Session_ambr, defaultSessionType []DefaultSessionType,
 
         pduSessionTypes := &models.PduSessionTypes{
                 DefaultSessionType : defaultSessionType1 ,
-                AllowedSessionTypes :        "IPV4V6" 
+                AllowedSessionTypes :        "IPV4V6", 
         }
 
         arp := &models.Arp{
@@ -87,19 +87,19 @@ func PMNConverter(ambrval Session_ambr, defaultSessionType []DefaultSessionType,
 
         sscModes := &models.SscModes{
                 DefaultSscMode : defaultSscMode1 ,
-                AllowedSscModes :   []string{"SSC_MODE_1","SSC_MODE_2","SSC_MODE_3"} 
+                AllowedSscModes :   []string{"SSC_MODE_1","SSC_MODE_2","SSC_MODE_3"},
         }
 
         dnnConfigurations := &models.DnnConfiguration{
                 PduSessionTypes : pduSessionTypes,
                 Internal_5gQosProfile :        internal_5gQosProfile ,
                 SessionAmbr : sessionAmbr ,
-                SscModes : sscModes 
+                SscModes : sscModes, 
         }
 
         smsd := &models.SessionManagementSubscriptionData {
-                SingleNssai:  singleNssai
-                DnnConfigurations :            dnnConfigurations
+                SingleNssai:  singleNssai,
+                DnnConfigurations :            dnnConfigurations,
         }
         return &protos.PMNSubscriberData{
                 plmnSmData: smsd,
