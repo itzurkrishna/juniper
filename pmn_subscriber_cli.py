@@ -267,3 +267,54 @@ if __name__ == "__main__":
     main()
 
 #python3.9  pmn_subscriber_cli.py add --mcc 724 --mnc 99 --imsi 724990000000008 --st 1 --sd "fff" --opc E8ED289DEBA952E4283B54E88E6183CA --auth_key 465B5CE8B199B49FAA5F0A2EE238A6BC --subs_ambr_ul "10 Mbps" --subs_ambr_dl "20 Mbps" --dnn_name "apn1" --dnn_ambr_ul "10 Mbps"   --dnn_ambr_dl "20 Mbps" --qos_profile_5qi 5
+'''
+ "plmnSmData": {
+    "724-99": {
+      "singleNssai": {
+        "sd": "fff",
+        "sst": 1
+      },
+      "dnnConfigurations": {
+        "apn1": {
+          "sessionAmbr": {
+            "uplink": "1.000009 mbps",
+            "downlink": "100.0 kbps"
+          },
+          "pduSessionTypes": {
+            "defaultSessionType": {
+              "pduSessTypes": "IPV4"
+            },
+            "allowedSessionTypes": [
+              {
+                "pduSessTypes": "IPV4V6"
+              }
+            ]
+          },
+          "internal5gQosProfile": {
+            "internal5qi": 5,
+            "arp": {
+              "priorityLevel": 7
+            }
+          },
+          "sscModes": {
+            "defaultSscMode": {
+              "sscModes": "SSC_MODE_1"
+            },
+            "allowedSscModes": [
+              {
+                "sscModes": "SSC_MODE_1"
+              },
+              {
+                "sscModes": "SSC_MODE_2"
+              },
+              {
+                "sscModes": "SSC_MODE_3"
+              }
+            ]
+          }
+        }
+      }
+    }
+    
+    '''
+
