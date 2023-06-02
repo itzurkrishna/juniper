@@ -67,8 +67,6 @@ def converter(bps):
     else:
         return str(bps) + " bps"
 
-
-
 def assemble_smsdata(smsdata, args):
     snssai=Snssai(sst=args.st, sd=args.sd)
     smsdata.singleNssai.MergeFrom(snssai)
