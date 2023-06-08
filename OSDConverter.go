@@ -81,3 +81,89 @@ func ConvertPMNSubscriberDataToProto(data *PMNSubscriberData) (*lte_protos_model
 
 	return opcData, nil
 }
+
+
+subscriberId := &lte_protos_models.SubscriberId{
+		DataType: "string",
+		SIdValue: "A",
+	}
+	opcData.SubscriberId = subscriberId
+
+	// Hardcoded values for SubscriberInfo
+	subscriberInfo := &lte_protos_models.SubscriberInfo{
+		DataType: "object",
+	}
+	siValue := &lte_protos_models.SIValue{
+		PricingPlanType:         "",
+		PlanName:                "199",
+		HomeLocation:            "",
+		UserNotification:        "",
+		SubscriberEmailId:       "",
+		SubscriberValidity:      "",
+		SubscriberCategory:      "",
+		TopupServicesSubscribed: []string{"", "", "", ""},
+	}
+	subscriberInfo.SiValue = siValue
+	opcData.SubscriberInfo = subscriberInfo
+
+	// Hardcoded values for ServiceSubscription
+	serviceSubscription := &lte_protos_models.ServiceSubscription{
+		DataType: "object",
+	}
+	ssValue1 := &lte_protos_models.SSValue{
+		ServiceName:          "BasePlan",
+		ServiceId:            "12345",
+		BillingStartDate:     "",
+		BillingEndDate:       "",
+		QuotaStartDate:       "",
+		QuotaEndDate:         "",
+		MonitoringKey:        "",
+		RatingGroup:          "",
+		TotalThreshold:       "",
+		RecurringQuotaReset:  "",
+		CurrentRolloverCount: "",
+	}
+	serviceSubscription.SsValue = append(serviceSubscription.SsValue, ssValue1)
+	ssValue2 := &lte_protos_models.SSValue{
+		ServiceName:          "Top-Up",
+		ServiceId:            "12346",
+		BillingStartDate:     "",
+		BillingEndDate:       "",
+		QuotaStartDate:       "",
+		QuotaEndDate:         "",
+		MonitoringKey:        "",
+		RatingGroup:          "",
+		TotalThreshold:       "",
+		RecurringQuotaReset:  "",
+		CurrentRolloverCount: "",
+	}
+	serviceSubscription.SsValue = append(serviceSubscription.SsValue, ssValue2)
+	opcData.ServiceSubscription = serviceSubscription
+
+	// Hardcoded values for VolumeAccounting
+	volumeAccounting := &lte_protos_models.VolumeAccounting{
+		DataType: "object",
+	}
+	vaValue1 := &lte_protos_models.VAValue{
+		ServiceName:    "",
+		ServiceId:      "",
+		TotalUsedQuota: "",
+		UlUsedQuota:    "",
+		DlUsedQuota:    "",
+		MonitoringKey:  "",
+		GracePeriod:    "",
+	}
+	volumeAccounting.VaValue = append(volumeAccounting.VaValue, vaValue1)
+	vaValue2 := &lte_protos_models.VAValue{
+		ServiceName:    "",
+		ServiceId:      "",
+		TotalUsedQuota: "",
+		UlUsedQuota:    "",
+		DlUsedQuota:    "",
+		MonitoringKey:  "",
+		GracePeriod:    "",
+	}
+	volumeAccounting.VaValue = append(volumeAccounting.VaValue, vaValue2)
+	opcData.VolumeAccounting = volumeAccounting
+
+	return opcData, nil
