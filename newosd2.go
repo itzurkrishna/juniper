@@ -75,7 +75,7 @@ func ConvertPMNSubscriberDataToProto() *models.OperatorSpecificData {
 
 	volumeAccounting := &models.VolumeAccounting{
 		DataType: "object",
-//     		VaValue: vaValue,
+    		VaValue: vaValue,
 	}
 
 	return &models.OperatorSpecificData{
