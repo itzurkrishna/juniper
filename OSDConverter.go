@@ -1,3 +1,29 @@
+
+	for _, value := range dSingleNssai {
+		temp := new(models.QosProfileName)
+		temp.qosProfileNames = value.Sd
+		temp.Sst = int32(value.Sst)
+		defaultNssaiData = append(defaultNssaiData, temp)
+	}
+
+	qosProfileNames := []*models.QosProfileName{
+		{
+			QosProfileName:     "",
+			PcrfARPPrioLevel:   "",
+			PcrfPreEmptionCap:  "",
+			PcrfPreEmptionVuln: "",
+			PcrfQoSClassName:   "",
+			PcrfMaxReqBrUL:     "",
+			PcrfMaxReqBrDL:     "",
+			PcrfGuarBrUL:       "",
+			PcrfGuarBrDL:       "",
+			PcrfAPNAggMaxBrUL:  "",
+			PcrfAPNAggMaxBrDL:  "",
+		},
+	}
+
+
+
 func ConvertPMNSubscriberDataToProto(data *PMNSubscriberData) (*lte_protos_models.OperatorSpecificData, error) {
 	opcData := &lte_protos_models.OperatorSpecificData{}
 
