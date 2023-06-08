@@ -41,37 +41,37 @@ func ConvertPMNSubscriberDataToProto() *models.OperatorSpecificData {
 		SiValue:  siValue,
 	}
 
-// 	ssValue := []*models.SsValue{
-// 		{
-// 			ServiceName:          "BasePlan",
-// 			ServiceId:            "12345",
-// 			BillingStartDate:     "",
-// 			BillingEndDate:       "",
-// 			QuotaStartDate:       "",
-// 			QuotaEndDate:         "",
-// 			MonitoringKey:        "",
-// 			RatingGroup:          "",
-// 			TotalThreshold:       "",
-// 			RecurringQuotaReset:  "",
-// 			CurrentRolloverCount: "",
-// 		},
-// 	}
+	ssValue := []*models.SSValue{
+		{
+			ServiceName:          "BasePlan",
+			ServiceId:            "12345",
+			BillingStartDate:     "",
+			BillingEndDate:       "",
+			QuotaStartDate:       "",
+			QuotaEndDate:         "",
+			MonitoringKey:        "",
+			RatingGroup:          "",
+			TotalThreshold:       "",
+			RecurringQuotaReset:  "",
+			CurrentRolloverCount: "",
+		},
+	}
 
 	serviceSubscription := &models.ServiceSubscription{
 		DataType: "object",
-//     		SsValue: ssValue,
+    		SsValue: ssValue,
 	}
-// 	vaValue := []*models.VaValue{
-// 		{
-// 			ServiceName:    "",
-// 			ServiceId:      "",
-// 			TotalUsedQuota: "",
-// 			UlUsedQuota:    "",
-// 			DlUsedQuota:    "",
-// 			MonitoringKey:  "",
-// 			GracePeriod:    "",
-// 		},
-// 	}
+	vaValue := []*models.VAValue{
+		{
+			ServiceName:    "",
+			ServiceId:      "",
+			TotalUsedQuota: "",
+			UlUsedQuota:    "",
+			DlUsedQuota:    "",
+			MonitoringKey:  "",
+			GracePeriod:    "",
+		},
+	}
 
 	volumeAccounting := &models.VolumeAccounting{
 		DataType: "object",
