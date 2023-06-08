@@ -1,33 +1,33 @@
-func ConvertPMNSubscriberDataToProto() *lte_protos_models.OperatorSpecificData {
-	subscriberId := &lte_protos_models.SubscriberId{
+
+func ConvertPMNSubscriberDataToProto() *models.OperatorSpecificData {
+
+	subscriberId := &models.SubscriberId{
 		DataType: "string",
 		SIdValue: "A",
 	}
 
-	var qosProfileName []*lte_protos_models.QosProfileName
-	for _, qos := range SIValue.QosProfileName {
-		qosProfile := &lte_protos_models.QosProfileName{
-			QosProfileName:    "",
-			PcrfARPPrioLevel:  "",
-			PcrfPreEmptionCap: "",
+	qosProfileNames := []*models.QosProfileName{
+		{
+			QosProfileName:     "",
+			PcrfARPPrioLevel:   "",
+			PcrfPreEmptionCap:  "",
 			PcrfPreEmptionVuln: "",
-			PcrfQoSClassName:  "",
-			PcrfMaxReqBrUL:    "",
-			PcrfMaxReqBrDL:    "",
-			PcrfGuarBrUL:      "",
-			PcrfGuarBrDL:      "",
-			PcrfAPNAggMaxBrUL: "",
-			PcrfAPNAggMaxBrDL: "",
-		}
-		qosProfileName = append(qosProfileName, qosProfile)
+			PcrfQoSClassName:   "",
+			PcrfMaxReqBrUL:     "",
+			PcrfMaxReqBrDL:     "",
+			PcrfGuarBrUL:       "",
+			PcrfGuarBrDL:       "",
+			PcrfAPNAggMaxBrUL:  "",
+			PcrfAPNAggMaxBrDL:  "",
+		},
 	}
 
 	topupServicesSubscribed := []string{"", "", "", ""}
 
-	siValue := &lte_protos_models.SIValue{
+	siValue := &models.SIValue{
 		PricingPlanType:         "",
 		PlanName:                "199",
-		QosProfileName:          qosProfileName,
+		QosProfileName:          qosProfileNames,
 		HomeLocation:            "",
 		UserNotification:        "",
 		SubscriberEmailId:       "",
@@ -36,16 +36,15 @@ func ConvertPMNSubscriberDataToProto() *lte_protos_models.OperatorSpecificData {
 		TopupServicesSubscribed: topupServicesSubscribed,
 	}
 
-	subscriberInfo := &lte_protos_models.SubscriberInfo{
+	subscriberInfo := &models.SubscriberInfo{
 		DataType: "object",
 		SiValue:  siValue,
 	}
 
-	var ssValue []*lte_protos_models.SSValue
-	for _, ss := range ServiceSubscription.SsValue {
-		service := &lte_protos_models.SSValue{
-			ServiceName:          ss.ServiceName,
-			ServiceId:            ss.ServiceId,
+	ssValue := []*models.SsValue{
+		{
+			ServiceName:          "BasePlan",
+			ServiceId:            "12345",
 			BillingStartDate:     "",
 			BillingEndDate:       "",
 			QuotaStartDate:       "",
@@ -55,38 +54,34 @@ func ConvertPMNSubscriberDataToProto() *lte_protos_models.OperatorSpecificData {
 			TotalThreshold:       "",
 			RecurringQuotaReset:  "",
 			CurrentRolloverCount: "",
-		}
-		ssValue = append(ssValue, service)
+		},
 	}
 
-	serviceSubscription := &lte_protos_models.ServiceSubscription{
+	serviceSubscription := &models.ServiceSubscription{
 		DataType: "object",
-		SsValue:  ssValue,
+    		SsValue: ssValue,
 	}
-
-	var vaValue []*lte_protos_models.VAValue
-	for _, va := range VolumeAccounting.VaValue {
-		volume := &lte_protos_models.VAValue{
-			ServiceName:    va.ServiceName,
-			ServiceId:      va.ServiceId,
+	vaValue := []*models.VaValue{
+		{
+			ServiceName:    "",
+			ServiceId:      "",
 			TotalUsedQuota: "",
 			UlUsedQuota:    "",
 			DlUsedQuota:    "",
 			MonitoringKey:  "",
 			GracePeriod:    "",
-		}
-		vaValue = append(vaValue, volume)
+		},
 	}
 
-	volumeAccounting := &lte_protos_models.VolumeAccounting{
+	volumeAccounting := &models.VolumeAccounting{
 		DataType: "object",
-		VaValue:  vaValue,
+    		VaValue: vaValue,
 	}
 
-	return &models.Osd{
-		SubscriberId:        subscriberId,
-		SubscriberInfo:      subscriberInfo,
-		ServiceSubscription: serviceSubscription,
-		VolumeAccounting:    volumeAccounting,
+	return &models.OperatorSpecificData{
+		SubscriberId:         subscriberId,
+		SubscriberInfo:       subscriberInfo,
+		ServiceSubscription:  serviceSubscription,
+		VolumeAccounting:     volumeAccounting,
 	}
 }
